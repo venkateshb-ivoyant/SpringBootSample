@@ -1,16 +1,15 @@
 package com.ivoyant.springBootCrudDemo.entity;
-import javax.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
 
+import javax.persistence.*;
+
+import lombok.*;
 
 @Getter
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
+@Builder
 @Table(name = "Employees")
 public class Employee {
 
