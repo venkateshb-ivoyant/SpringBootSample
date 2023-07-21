@@ -16,30 +16,30 @@ public class EmployeeController {
 
     private EmployeeService employeeService;
 
-    // build create User REST API
+    // build create Employee REST API
     @PostMapping
     public ResponseEntity<Employee> createEmployee(@RequestBody Employee employee){
         Employee savedEmployee = employeeService.createEmployee(employee);
         return new ResponseEntity<>(savedEmployee, HttpStatus.CREATED);
     }
 
-    // build get user by id REST API
-    // http://localhost:8080/api/users/1
+    // build get Employee by id REST API
+    // http://localhost:8080/api/Employees/1
     @GetMapping("{id}")
     public ResponseEntity<Employee> getEmployeeById(@PathVariable("id") Long userId){
         Employee employee = employeeService.getEmployeeById(userId);
         return new ResponseEntity<>(employee, HttpStatus.OK);
     }
 
-    // Build Get All Users REST API
-    // http://localhost:8080/api/users
+    // Build Get All Employees REST API
+    // http://localhost:8080/api/employees
     @GetMapping
     public ResponseEntity<List<Employee>> getAllEmployees(){
         List<Employee> employees = employeeService.getAllEmployees();
         return new ResponseEntity<>(employees, HttpStatus.OK);
     }
 
-    // Build Update User REST API
+    // Build Update Employee REST API
     @PutMapping("{id}")
     // http://localhost:8080/api/employees/1
     public ResponseEntity<Employee> updateEmployee(@PathVariable("id") Long userId,
@@ -49,7 +49,7 @@ public class EmployeeController {
         return new ResponseEntity<>(updatedEmployee, HttpStatus.OK);
     }
 
-    // Build Delete User REST API
+    // Build Delete Employee REST API
     @DeleteMapping("{id}")
     public ResponseEntity<String> deleteEmployee(@PathVariable("id") Long employeeId){
         employeeService.deleteEmployee(employeeId);
